@@ -18,6 +18,16 @@ class FileOpenManagerTest {
     }
 
     @Test
+    void shouldAddInvalidProgram() {
+        manager.addNewProgram(".html", "Google Chrome");
+        manager.addNewProgram(".jpg", "FotoView");
+
+        assertThrows(RuntimeException.class, () -> {
+            manager.addNewProgram(".jpg", "FotoView");
+        });
+    }
+
+    @Test
     void shouldGetProgram() {
         manager.addNewProgram(".html", "Google Chrome");
         manager.addNewProgram(".jpg", "FotoView");
