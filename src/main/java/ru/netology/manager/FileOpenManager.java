@@ -20,13 +20,12 @@ public class FileOpenManager {
      * Добавляет новое приложение
      * @param extension расширение файлов
      * @param name название ПО
-     * @throws Exception выбрасывается исключение, если такое ПО уже есть в списке
      */
     public void addNewProgram(String extension, String name) {
-        if (!programs.containsValue(name)) {
+        if (!programs.containsKey(extension)) {
             programs.put(extension.toLowerCase(), name);
         } else {
-            throw new RuntimeException("Такая программа уже есть в списке");
+            throw new RuntimeException("ПО для работы с этим расширением уже есть в списке");
         }
     }
 
